@@ -99,7 +99,7 @@ rivery:
           \ else null end) as comments,\nmax(case when actions.value:_action_type::string='credit_spent'\
           \ then actions.value:_value::int else null end) as credit_spends,\nmax(case\
           \ when actions.value:_action_type::string='games.plays' then actions.value:_value::int\
-          \ else null end) as game_plays,\nmax(case when actions.value:_action_type::string='landing_page_view'\
+          \ else null end) as game_plays_new,\nmax(case when actions.value:_action_type::string='landing_page_view'\
           \ then actions.value:_value::int else null end) as landing_page_views,\n\
           max(case when actions.value:_action_type::string='like' then actions.value:_value::int\
           \ else null end) as likes,\nmax(case when actions.value:_action_type::string='mobile_app_install'\
