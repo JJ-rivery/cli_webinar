@@ -1,0 +1,4 @@
+name: cli_webinar_project
+models: models
+sqls: sqls
+maps: maps
