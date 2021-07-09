@@ -1,1198 +1,1198 @@
 rivery:
-  entity_name: river-60e718ebf5682c254bc15cfe
-  version: 0.2.5
-  type: river
   cross_id: 60e718ebf5682c254bc15cfe
   definition:
-    properties:
-      steps:
-      - type: container
-        isEnabled: true
-        step_name: data pulls
-        isParallel: true
-        container_running: run_once
-        loop_over_value: ''
-        loop_over_variable_name: []
-        steps:
-        - type: step
-          isEnabled: true
-          step_name: insights
-          block_primary_type: river
-          block_type: river
-          river_id: 60be202dab47e1a0a612f9c6
-        - type: step
-          isEnabled: true
-          step_name: ad creatives
-          block_primary_type: river
-          block_type: river
-          river_id: 60be202dab47e1a0a612f9d0
-        - type: step
-          isEnabled: true
-          step_name: ads
-          block_primary_type: river
-          block_type: river
-          river_id: 60be202dab47e1a0a612f9ce
-        - type: step
-          isEnabled: true
-          step_name: adsets
-          block_primary_type: river
-          block_type: river
-          river_id: 60be202dab47e1a0a612f9cc
-        - type: step
-          isEnabled: true
-          step_name: campaigns
-          block_primary_type: river
-          block_type: river
-          river_id: 60be202dab47e1a0a612f9ca
-        - type: step
-          isEnabled: true
-          step_name: ad accounts
-          block_primary_type: river
-          block_type: river
-          river_id: 60be202dab47e1a0a612f9c8
-      - type: step
-        isEnabled: true
-        step_name: create fact_fb_ads_performance table
-        block_primary_type: sql
-        block_type: snowflake
-        file_type: csv
-        fzConnection: {}
-        split_interval: d
-        compression: none
-        merge_method: switch_tables
-        schema_id: '{fb_ads_schema}'
-        drop_after: false
-        execute_sql_command: false
-        connection_id: 5e69d05214207e1815997e29
-        target_table: fact_fb_ads_performance
-        split_tables: 'no'
-        sql_query: $path:performance_logic.sql
-        database: '{fb_ads_db}'
-        query_priority: interactive
-        target_type: table
-        mapping_message: Warning! please make sure your columns mapping is valid after
-          your query changes.
-        block_db_type: snowflake
-        fields:
-        - name: account_name
-          fields: []
-          alias: account_name
-          length: 16777216
-          fieldName: account_name
-          mode: NULLABLE
-          type: STRING
-          id: account_name
-        - name: frequency
-          fields: []
-          alias: frequency
-          length: 16777216
-          fieldName: frequency
-          mode: NULLABLE
-          type: STRING
-          id: frequency
-        - name: account_id
-          isKey: true
-          fields: []
-          alias: account_id
-          length: 16777216
-          fieldName: account_id
-          mode: NULLABLE
-          type: STRING
-          id: account_id
-        - name: ctr
-          fields: []
-          alias: ctr
-          length: 16777216
-          fieldName: ctr
-          mode: NULLABLE
-          type: STRING
-          id: ctr
-        - name: unique_ctr
-          fields: []
-          alias: unique_ctr
-          length: 16777216
-          fieldName: unique_ctr
-          mode: NULLABLE
-          type: STRING
-          id: unique_ctr
-        - name: unique_clicks
-          fields: []
-          alias: unique_clicks
-          length: 16777216
-          fieldName: unique_clicks
-          mode: NULLABLE
-          type: STRING
-          id: unique_clicks
-        - name: date_start
-          isKey: true
-          fields: []
-          alias: date_start
-          length: 16777216
-          fieldName: date_start
-          mode: NULLABLE
-          type: STRING
-          id: date_start
-        - name: campaign_id
-          isKey: true
-          fields: []
-          alias: campaign_id
-          length: 16777216
-          fieldName: campaign_id
-          mode: NULLABLE
-          type: STRING
-          id: campaign_id
-        - name: campaign_name
-          fields: []
-          alias: campaign_name
-          length: 16777216
-          fieldName: campaign_name
-          mode: NULLABLE
-          type: STRING
-          id: campaign_name
-        - name: adset_id
-          isKey: true
-          fields: []
-          alias: adset_id
-          length: 16777216
-          fieldName: adset_id
-          mode: NULLABLE
-          type: STRING
-          id: adset_id
-        - name: adset_name
-          fields: []
-          alias: adset_name
-          length: 16777216
-          fieldName: adset_name
-          mode: NULLABLE
-          type: STRING
-          id: adset_name
-        - name: ad_id
-          isKey: true
-          fields: []
-          alias: ad_id
-          length: 16777216
-          fieldName: ad_id
-          mode: NULLABLE
-          type: STRING
-          id: ad_id
-        - name: ad_name
-          fields: []
-          alias: ad_name
-          length: 16777216
-          fieldName: ad_name
-          mode: NULLABLE
-          type: STRING
-          id: ad_name
-        - name: publisher_platform
-          isKey: true
-          fields: []
-          alias: publisher_platform
-          length: 16777216
-          fieldName: publisher_platform
-          mode: NULLABLE
-          type: STRING
-          id: publisher_platform
-        - name: platform_position
-          isKey: true
-          fields: []
-          alias: platform_position
-          length: 16777216
-          fieldName: platform_position
-          mode: NULLABLE
-          type: STRING
-          id: platform_position
-        - name: impressions
-          fields: []
-          alias: impressions
-          length: 16777216
-          fieldName: impressions
-          mode: NULLABLE
-          type: STRING
-          id: impressions
-        - name: date_stop
-          fields: []
-          alias: date_stop
-          length: 16777216
-          fieldName: date_stop
-          mode: NULLABLE
-          type: STRING
-          id: date_stop
-        - name: clicks
-          fields: []
-          alias: clicks
-          length: 16777216
-          fieldName: clicks
-          mode: NULLABLE
-          type: STRING
-          id: clicks
-        - name: reach
-          fields: []
-          alias: reach
-          length: 16777216
-          fieldName: reach
-          mode: NULLABLE
-          type: STRING
-          id: reach
-        - name: cpc
-          fields: []
-          alias: cpc
-          length: 16777216
-          fieldName: cpc
-          mode: NULLABLE
-          type: STRING
-          id: cpc
-        - name: unique_link_clicks_ctr
-          fields: []
-          alias: unique_link_clicks_ctr
-          length: 16777216
-          fieldName: unique_link_clicks_ctr
-          mode: NULLABLE
-          type: STRING
-          id: unique_link_clicks_ctr
-        - name: inline_link_clicks
-          fields: []
-          alias: inline_link_clicks
-          length: 16777216
-          fieldName: inline_link_clicks
-          mode: NULLABLE
-          type: STRING
-          id: inline_link_clicks
-        - name: spend
-          fields: []
-          alias: spend
-          length: 16777216
-          fieldName: spend
-          mode: NULLABLE
-          type: STRING
-          id: spend
-        - name: unique_inline_link_click_ctr
-          fields: []
-          alias: unique_inline_link_click_ctr
-          length: 16777216
-          fieldName: unique_inline_link_click_ctr
-          mode: NULLABLE
-          type: STRING
-          id: unique_inline_link_click_ctr
-        - name: cpm
-          fields: []
-          alias: cpm
-          length: 16777216
-          fieldName: cpm
-          mode: NULLABLE
-          type: STRING
-          id: cpm
-        - name: video_p100_watched
-          fields: []
-          alias: video_p100_watched
-          length: 38
-          fieldName: video_p100_watched
-          mode: NULLABLE
-          type: NUMBER
-          id: video_p100_watched
-        - name: video_p95_watched
-          fields: []
-          alias: video_p95_watched
-          length: 38
-          fieldName: video_p95_watched
-          mode: NULLABLE
-          type: NUMBER
-          id: video_p95_watched
-        - name: video_p75_watched
-          fields: []
-          alias: video_p75_watched
-          length: 38
-          fieldName: video_p75_watched
-          mode: NULLABLE
-          type: NUMBER
-          id: video_p75_watched
-        - name: video_p50_watched
-          fields: []
-          alias: video_p50_watched
-          length: 38
-          fieldName: video_p50_watched
-          mode: NULLABLE
-          type: NUMBER
-          id: video_p50_watched
-        - name: video_p25_watched
-          fields: []
-          alias: video_p25_watched
-          length: 38
-          fieldName: video_p25_watched
-          mode: NULLABLE
-          type: NUMBER
-          id: video_p25_watched
-        - name: video_avg_time_watched
-          fields: []
-          alias: video_avg_time_watched
-          length: 38
-          fieldName: video_avg_time_watched
-          mode: NULLABLE
-          type: NUMBER
-          id: video_avg_time_watched
-        - name: purchase
-          fields: []
-          alias: purchase
-          length: 38
-          fieldName: purchase
-          mode: NULLABLE
-          type: NUMBER
-          id: purchase
-        - name: app_installs
-          fields: []
-          alias: app_installs
-          length: 38
-          fieldName: app_installs
-          mode: NULLABLE
-          type: NUMBER
-          id: app_installs
-        - name: app_uses
-          fields: []
-          alias: app_uses
-          length: 38
-          fieldName: app_uses
-          mode: NULLABLE
-          type: NUMBER
-          id: app_uses
-        - name: checkins
-          fields: []
-          alias: checkins
-          length: 38
-          fieldName: checkins
-          mode: NULLABLE
-          type: NUMBER
-          id: checkins
-        - name: comments
-          fields: []
-          alias: comments
-          length: 38
-          fieldName: comments
-          mode: NULLABLE
-          type: NUMBER
-          id: comments
-        - name: credit_spends
-          fields: []
-          alias: credit_spends
-          length: 38
-          fieldName: credit_spends
-          mode: NULLABLE
-          type: NUMBER
-          id: credit_spends
-        - name: game_plays
-          fields: []
-          alias: game_plays
-          length: 38
-          fieldName: game_plays
-          mode: NULLABLE
-          type: NUMBER
-          id: game_plays
-        - name: landing_page_views
-          fields: []
-          alias: landing_page_views
-          length: 38
-          fieldName: landing_page_views
-          mode: NULLABLE
-          type: NUMBER
-          id: landing_page_views
-        - name: likes
-          fields: []
-          alias: likes
-          length: 38
-          fieldName: likes
-          mode: NULLABLE
-          type: NUMBER
-          id: likes
-        - name: mobile_app_installs
-          fields: []
-          alias: mobile_app_installs
-          length: 38
-          fieldName: mobile_app_installs
-          mode: NULLABLE
-          type: NUMBER
-          id: mobile_app_installs
-        - name: omni_ratings_submitted
-          fields: []
-          alias: omni_ratings_submitted
-          length: 38
-          fieldName: omni_ratings_submitted
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_ratings_submitted
-        - name: omni_initiated_checkouts
-          fields: []
-          alias: omni_initiated_checkouts
-          length: 38
-          fieldName: omni_initiated_checkouts
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_initiated_checkouts
-        - name: omni_purchases
-          fields: []
-          alias: omni_purchases
-          length: 38
-          fieldName: omni_purchases
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_purchases
-        - name: link_click
-          fields: []
-          alias: link_click
-          length: 38
-          fieldName: link_click
-          mode: NULLABLE
-          type: NUMBER
-          id: link_click
-        - name: omni_app_activations
-          fields: []
-          alias: omni_app_activations
-          length: 38
-          fieldName: omni_app_activations
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_app_activations
-        - name: omni_app_installs
-          fields: []
-          alias: omni_app_installs
-          length: 38
-          fieldName: omni_app_installs
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_app_installs
-        - name: omni_content_views
-          fields: []
-          alias: omni_content_views
-          length: 38
-          fieldName: omni_content_views
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_content_views
-        - name: post_engagement
-          fields: []
-          alias: post_engagement
-          length: 38
-          fieldName: post_engagement
-          mode: NULLABLE
-          type: NUMBER
-          id: post_engagement
-        - name: page_engagement
-          fields: []
-          alias: page_engagement
-          length: 38
-          fieldName: page_engagement
-          mode: NULLABLE
-          type: NUMBER
-          id: page_engagement
-        - name: omni_tutorial_completions
-          fields: []
-          alias: omni_tutorial_completions
-          length: 38
-          fieldName: omni_tutorial_completions
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_tutorial_completions
-        - name: adds_to_cart
-          fields: []
-          alias: adds_to_cart
-          length: 38
-          fieldName: adds_to_cart
-          mode: NULLABLE
-          type: NUMBER
-          id: adds_to_cart
-        - name: adds_payment_info
-          fields: []
-          alias: adds_payment_info
-          length: 38
-          fieldName: adds_payment_info
-          mode: NULLABLE
-          type: NUMBER
-          id: adds_payment_info
-        - name: adds_to_wishlist
-          fields: []
-          alias: adds_to_wishlist
-          length: 38
-          fieldName: adds_to_wishlist
-          mode: NULLABLE
-          type: NUMBER
-          id: adds_to_wishlist
-        - name: completed_registrations
-          fields: []
-          alias: completed_registrations
-          length: 38
-          fieldName: completed_registrations
-          mode: NULLABLE
-          type: NUMBER
-          id: completed_registrations
-        - name: initiates_checkout
-          fields: []
-          alias: initiates_checkout
-          length: 38
-          fieldName: initiates_checkout
-          mode: NULLABLE
-          type: NUMBER
-          id: initiates_checkout
-        - name: leads
-          fields: []
-          alias: leads
-          length: 38
-          fieldName: leads
-          mode: NULLABLE
-          type: NUMBER
-          id: leads
-        - name: pixel_purchases
-          fields: []
-          alias: pixel_purchases
-          length: 38
-          fieldName: pixel_purchases
-          mode: NULLABLE
-          type: NUMBER
-          id: pixel_purchases
-        - name: on_facebook_workflow_completions
-          fields: []
-          alias: on_facebook_workflow_completions
-          length: 38
-          fieldName: on_facebook_workflow_completions
-          mode: NULLABLE
-          type: NUMBER
-          id: on_facebook_workflow_completions
-        - name: blocked_messaging_conversations
-          fields: []
-          alias: blocked_messaging_conversations
-          length: 38
-          fieldName: blocked_messaging_conversations
-          mode: NULLABLE
-          type: NUMBER
-          id: blocked_messaging_conversations
-        - name: messaging_conversations_started
-          fields: []
-          alias: messaging_conversations_started
-          length: 38
-          fieldName: messaging_conversations_started
-          mode: NULLABLE
-          type: NUMBER
-          id: messaging_conversations_started
-        - name: new_messaging_conversations
-          fields: []
-          alias: new_messaging_conversations
-          length: 38
-          fieldName: new_messaging_conversations
-          mode: NULLABLE
-          type: NUMBER
-          id: new_messaging_conversations
-        - name: post_saves
-          fields: []
-          alias: post_saves
-          length: 38
-          fieldName: post_saves
-          mode: NULLABLE
-          type: NUMBER
-          id: post_saves
-        - name: on_facebook_purchases
-          fields: []
-          alias: on_facebook_purchases
-          length: 38
-          fieldName: on_facebook_purchases
-          mode: NULLABLE
-          type: NUMBER
-          id: on_facebook_purchases
-        - name: page_photo_views
-          fields: []
-          alias: page_photo_views
-          length: 38
-          fieldName: page_photo_views
-          mode: NULLABLE
-          type: NUMBER
-          id: page_photo_views
-        - name: post_shares
-          fields: []
-          alias: post_shares
-          length: 38
-          fieldName: post_shares
-          mode: NULLABLE
-          type: NUMBER
-          id: post_shares
-        - name: post_reactions
-          fields: []
-          alias: post_reactions
-          length: 38
-          fieldName: post_reactions
-          mode: NULLABLE
-          type: NUMBER
-          id: post_reactions
-        - name: event_responses
-          fields: []
-          alias: event_responses
-          length: 38
-          fieldName: event_responses
-          mode: NULLABLE
-          type: NUMBER
-          id: event_responses
-        - name: three_sec_video_views
-          fields: []
-          alias: three_sec_video_views
-          length: 38
-          fieldName: three_sec_video_views
-          mode: NULLABLE
-          type: NUMBER
-          id: three_sec_video_views
-        - name: trials_started
-          fields: []
-          alias: trials_started
-          length: 38
-          fieldName: trials_started
-          mode: NULLABLE
-          type: NUMBER
-          id: trials_started
-        - name: applications_submitted
-          fields: []
-          alias: applications_submitted
-          length: 38
-          fieldName: applications_submitted
-          mode: NULLABLE
-          type: NUMBER
-          id: applications_submitted
-        - name: subscriptions
-          fields: []
-          alias: subscriptions
-          length: 38
-          fieldName: subscriptions
-          mode: NULLABLE
-          type: NUMBER
-          id: subscriptions
-        - name: canceled_subscriptions
-          fields: []
-          alias: canceled_subscriptions
-          length: 38
-          fieldName: canceled_subscriptions
-          mode: NULLABLE
-          type: NUMBER
-          id: canceled_subscriptions
-        - name: add_to_cart_value
-          fields: []
-          alias: add_to_cart_value
-          length: 38
-          fieldName: add_to_cart_value
-          mode: NULLABLE
-          type: FLOAT
-          id: add_to_cart_value
-        - name: fb_mobile_add_to_cart_value
-          fields: []
-          alias: fb_mobile_add_to_cart_value
-          length: 38
-          fieldName: fb_mobile_add_to_cart_value
-          mode: NULLABLE
-          type: FLOAT
-          id: fb_mobile_add_to_cart_value
-        - name: fb_mobile_initiated_checkout_value
-          fields: []
-          alias: fb_mobile_initiated_checkout_value
-          length: 38
-          fieldName: fb_mobile_initiated_checkout_value
-          mode: NULLABLE
-          type: FLOAT
-          id: fb_mobile_initiated_checkout_value
-        - name: fb_mobile_purchase_value
-          fields: []
-          alias: fb_mobile_purchase_value
-          length: 38
-          fieldName: fb_mobile_purchase_value
-          mode: NULLABLE
-          type: FLOAT
-          id: fb_mobile_purchase_value
-        - name: fb_mobile_rate_value
-          fields: []
-          alias: fb_mobile_rate_value
-          length: 38
-          fieldName: fb_mobile_rate_value
-          mode: NULLABLE
-          type: FLOAT
-          id: fb_mobile_rate_value
-        - name: fb_mobile_other_value
-          fields: []
-          alias: fb_mobile_other_value
-          length: 38
-          fieldName: fb_mobile_other_value
-          mode: NULLABLE
-          type: FLOAT
-          id: fb_mobile_other_value
-        - name: initiate_checkout_value
-          fields: []
-          alias: initiate_checkout_value
-          length: 38
-          fieldName: initiate_checkout_value
-          mode: NULLABLE
-          type: FLOAT
-          id: initiate_checkout_value
-        - name: omni_add_to_cart_value
-          fields: []
-          alias: omni_add_to_cart_value
-          length: 38
-          fieldName: omni_add_to_cart_value
-          mode: NULLABLE
-          type: FLOAT
-          id: omni_add_to_cart_value
-        - name: omni_initiated_checkout_value
-          fields: []
-          alias: omni_initiated_checkout_value
-          length: 38
-          fieldName: omni_initiated_checkout_value
-          mode: NULLABLE
-          type: FLOAT
-          id: omni_initiated_checkout_value
-        - name: omni_purchase_value
-          fields: []
-          alias: omni_purchase_value
-          length: 38
-          fieldName: omni_purchase_value
-          mode: NULLABLE
-          type: FLOAT
-          id: omni_purchase_value
-        - name: omni_rate_value
-          fields: []
-          alias: omni_rate_value
-          length: 38
-          fieldName: omni_rate_value
-          mode: NULLABLE
-          type: FLOAT
-          id: omni_rate_value
-        - name: purchase_unique
-          fields: []
-          alias: purchase_unique
-          length: 38
-          fieldName: purchase_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: purchase_unique
-        - name: app_installs_unique
-          fields: []
-          alias: app_installs_unique
-          length: 38
-          fieldName: app_installs_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: app_installs_unique
-        - name: app_uses_unique
-          fields: []
-          alias: app_uses_unique
-          length: 38
-          fieldName: app_uses_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: app_uses_unique
-        - name: checkins_unique
-          fields: []
-          alias: checkins_unique
-          length: 38
-          fieldName: checkins_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: checkins_unique
-        - name: comments_unique
-          fields: []
-          alias: comments_unique
-          length: 38
-          fieldName: comments_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: comments_unique
-        - name: credit_spends_unique
-          fields: []
-          alias: credit_spends_unique
-          length: 38
-          fieldName: credit_spends_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: credit_spends_unique
-        - name: game_plays_unique
-          fields: []
-          alias: game_plays_unique
-          length: 38
-          fieldName: game_plays_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: game_plays_unique
-        - name: landing_page_views_unique
-          fields: []
-          alias: landing_page_views_unique
-          length: 38
-          fieldName: landing_page_views_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: landing_page_views_unique
-        - name: likes_unique
-          fields: []
-          alias: likes_unique
-          length: 38
-          fieldName: likes_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: likes_unique
-        - name: mobile_app_installs_unique
-          fields: []
-          alias: mobile_app_installs_unique
-          length: 38
-          fieldName: mobile_app_installs_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: mobile_app_installs_unique
-        - name: omni_ratings_submitted_unique
-          fields: []
-          alias: omni_ratings_submitted_unique
-          length: 38
-          fieldName: omni_ratings_submitted_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_ratings_submitted_unique
-        - name: omni_initiated_checkouts_unique
-          fields: []
-          alias: omni_initiated_checkouts_unique
-          length: 38
-          fieldName: omni_initiated_checkouts_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_initiated_checkouts_unique
-        - name: omni_purchases_unique
-          fields: []
-          alias: omni_purchases_unique
-          length: 38
-          fieldName: omni_purchases_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_purchases_unique
-        - name: link_click_unique
-          fields: []
-          alias: link_click_unique
-          length: 38
-          fieldName: link_click_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: link_click_unique
-        - name: omni_app_activations_unique
-          fields: []
-          alias: omni_app_activations_unique
-          length: 38
-          fieldName: omni_app_activations_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_app_activations_unique
-        - name: omni_app_installs_unique
-          fields: []
-          alias: omni_app_installs_unique
-          length: 38
-          fieldName: omni_app_installs_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_app_installs_unique
-        - name: omni_content_views_unique
-          fields: []
-          alias: omni_content_views_unique
-          length: 38
-          fieldName: omni_content_views_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_content_views_unique
-        - name: post_engagement_unique
-          fields: []
-          alias: post_engagement_unique
-          length: 38
-          fieldName: post_engagement_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: post_engagement_unique
-        - name: page_engagement_unique
-          fields: []
-          alias: page_engagement_unique
-          length: 38
-          fieldName: page_engagement_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: page_engagement_unique
-        - name: omni_tutorial_completions_unique
-          fields: []
-          alias: omni_tutorial_completions_unique
-          length: 38
-          fieldName: omni_tutorial_completions_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: omni_tutorial_completions_unique
-        - name: adds_to_cart_unique
-          fields: []
-          alias: adds_to_cart_unique
-          length: 38
-          fieldName: adds_to_cart_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: adds_to_cart_unique
-        - name: adds_payment_info_unique
-          fields: []
-          alias: adds_payment_info_unique
-          length: 38
-          fieldName: adds_payment_info_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: adds_payment_info_unique
-        - name: adds_to_wishlist_unique
-          fields: []
-          alias: adds_to_wishlist_unique
-          length: 38
-          fieldName: adds_to_wishlist_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: adds_to_wishlist_unique
-        - name: completed_registrations_unique
-          fields: []
-          alias: completed_registrations_unique
-          length: 38
-          fieldName: completed_registrations_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: completed_registrations_unique
-        - name: initiates_checkout_unique
-          fields: []
-          alias: initiates_checkout_unique
-          length: 38
-          fieldName: initiates_checkout_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: initiates_checkout_unique
-        - name: leads_unique
-          fields: []
-          alias: leads_unique
-          length: 38
-          fieldName: leads_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: leads_unique
-        - name: pixel_purchases_unique
-          fields: []
-          alias: pixel_purchases_unique
-          length: 38
-          fieldName: pixel_purchases_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: pixel_purchases_unique
-        - name: on_facebook_workflow_completions_unique
-          fields: []
-          alias: on_facebook_workflow_completions_unique
-          length: 38
-          fieldName: on_facebook_workflow_completions_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: on_facebook_workflow_completions_unique
-        - name: blocked_messaging_conversations_unique
-          fields: []
-          alias: blocked_messaging_conversations_unique
-          length: 38
-          fieldName: blocked_messaging_conversations_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: blocked_messaging_conversations_unique
-        - name: messaging_conversations_started_unique
-          fields: []
-          alias: messaging_conversations_started_unique
-          length: 38
-          fieldName: messaging_conversations_started_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: messaging_conversations_started_unique
-        - name: new_messaging_conversations_unique
-          fields: []
-          alias: new_messaging_conversations_unique
-          length: 38
-          fieldName: new_messaging_conversations_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: new_messaging_conversations_unique
-        - name: post_saves_unique
-          fields: []
-          alias: post_saves_unique
-          length: 38
-          fieldName: post_saves_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: post_saves_unique
-        - name: on_facebook_purchases_unique
-          fields: []
-          alias: on_facebook_purchases_unique
-          length: 38
-          fieldName: on_facebook_purchases_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: on_facebook_purchases_unique
-        - name: page_photo_views_unique
-          fields: []
-          alias: page_photo_views_unique
-          length: 38
-          fieldName: page_photo_views_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: page_photo_views_unique
-        - name: post_shares_unique
-          fields: []
-          alias: post_shares_unique
-          length: 38
-          fieldName: post_shares_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: post_shares_unique
-        - name: post_reactions_unique
-          fields: []
-          alias: post_reactions_unique
-          length: 38
-          fieldName: post_reactions_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: post_reactions_unique
-        - name: event_responses_unique
-          fields: []
-          alias: event_responses_unique
-          length: 38
-          fieldName: event_responses_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: event_responses_unique
-        - name: three_sec_video_views_unique
-          fields: []
-          alias: three_sec_video_views_unique
-          length: 38
-          fieldName: three_sec_video_views_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: three_sec_video_views_unique
-        - name: trials_started_unique
-          fields: []
-          alias: trials_started_unique
-          length: 38
-          fieldName: trials_started_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: trials_started_unique
-        - name: applications_submitted_unique
-          fields: []
-          alias: applications_submitted_unique
-          length: 38
-          fieldName: applications_submitted_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: applications_submitted_unique
-        - name: subscriptions_unique
-          fields: []
-          alias: subscriptions_unique
-          length: 38
-          fieldName: subscriptions_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: subscriptions_unique
-        - name: canceled_subscriptions_unique
-          fields: []
-          alias: canceled_subscriptions_unique
-          length: 38
-          fieldName: canceled_subscriptions_unique
-          mode: NULLABLE
-          type: NUMBER
-          id: canceled_subscriptions_unique
-        - name: start_trial_mobile_app_conversions
-          fields: []
-          alias: start_trial_mobile_app_conversions
-          length: 38
-          fieldName: start_trial_mobile_app_conversions
-          mode: NULLABLE
-          type: FLOAT
-          id: start_trial_mobile_app_conversions
-        - name: start_trial_total_conversions
-          fields: []
-          alias: start_trial_total_conversions
-          length: 38
-          fieldName: start_trial_total_conversions
-          mode: NULLABLE
-          type: FLOAT
-          id: start_trial_total_conversions
-        - name: subscribe_mobile_app_conversions
-          fields: []
-          alias: subscribe_mobile_app_conversions
-          length: 38
-          fieldName: subscribe_mobile_app_conversions
-          mode: NULLABLE
-          type: FLOAT
-          id: subscribe_mobile_app_conversions
-        - name: subscribe_total_conversions
-          fields: []
-          alias: subscribe_total_conversions
-          length: 38
-          fieldName: subscribe_total_conversions
-          mode: NULLABLE
-          type: FLOAT
-          id: subscribe_total_conversions
-        - name: omni_purchase_roas
-          fields: []
-          alias: omni_purchase_roas
-          length: 38
-          fieldName: omni_purchase_roas
-          mode: NULLABLE
-          type: FLOAT
-          id: omni_purchase_roas
-        - name: unique_outbound_clicks
-          fields: []
-          alias: unique_outbound_clicks
-          length: 38
-          fieldName: unique_outbound_clicks
-          mode: NULLABLE
-          type: NUMBER
-          id: unique_outbound_clicks
-        - name: outbound_clicks
-          fields: []
-          alias: outbound_clicks
-          length: 38
-          fieldName: outbound_clicks
-          mode: NULLABLE
-          type: NUMBER
-          id: outbound_clicks
-        - name: outbound_clicks_ctr
-          fields: []
-          alias: outbound_clicks_ctr
-          length: 38
-          fieldName: outbound_clicks_ctr
-          mode: NULLABLE
-          type: FLOAT
-          id: outbound_clicks_ctr
-        - name: unique_outbound_click_ctr
-          fields: []
-          alias: unique_outbound_click_ctr
-          length: 38
-          fieldName: unique_outbound_click_ctr
-          mode: NULLABLE
-          type: FLOAT
-          id: unique_outbound_click_ctr
-        - name: creative_id
-          fields: []
-          alias: creative_id
-          length: 16777216
-          fieldName: creative_id
-          mode: NULLABLE
-          type: STRING
-          id: creative_id
-        - name: creative_name
-          fields: []
-          alias: creative_name
-          length: 16777216
-          fieldName: creative_name
-          mode: NULLABLE
-          type: STRING
-          id: creative_name
-        - name: link_url
-          fields: []
-          alias: link_url
-          length: 16777216
-          fieldName: link_url
-          mode: NULLABLE
-          type: STRING
-          id: link_url
-        use_standard_sql: false
-        target_loading: merge
-      variables: {}
-    schedule: {}
+    description: Imported by Rivery CLI
+    name: Facebooks Ads - Logic_w
     notifications:
-      on_warning: {}
       on_failure: {}
       on_run_threshold: {}
-    name: Facebooks Ads - Logic_w
-    description: Imported by Rivery CLI
+      on_warning: {}
+    properties:
+      steps:
+      - container_running: run_once
+        isEnabled: true
+        isParallel: true
+        loop_over_value: ''
+        loop_over_variable_name: []
+        step_name: data pulls
+        steps:
+        - block_primary_type: river
+          block_type: river
+          isEnabled: true
+          river_id: 60be202dab47e1a0a612f9c6
+          step_name: insights
+          type: step
+        - block_primary_type: river
+          block_type: river
+          isEnabled: true
+          river_id: 60be202dab47e1a0a612f9d0
+          step_name: ad creatives
+          type: step
+        - block_primary_type: river
+          block_type: river
+          isEnabled: true
+          river_id: 60be202dab47e1a0a612f9ce
+          step_name: ads
+          type: step
+        - block_primary_type: river
+          block_type: river
+          isEnabled: true
+          river_id: 60be202dab47e1a0a612f9cc
+          step_name: adsets
+          type: step
+        - block_primary_type: river
+          block_type: river
+          isEnabled: true
+          river_id: 60be202dab47e1a0a612f9ca
+          step_name: campaigns
+          type: step
+        - block_primary_type: river
+          block_type: river
+          isEnabled: true
+          river_id: 60be202dab47e1a0a612f9c8
+          step_name: ad accounts
+          type: step
+        type: container
+      - block_db_type: snowflake
+        block_primary_type: sql
+        block_type: snowflake
+        compression: none
+        connection_id: 5e69d05214207e1815997e29
+        database: '{fb_ads_db}'
+        drop_after: false
+        execute_sql_command: false
+        fields:
+        - alias: account_name
+          fieldName: account_name
+          fields: []
+          id: account_name
+          length: 16777216
+          mode: NULLABLE
+          name: account_name
+          type: STRING
+        - alias: frequency
+          fieldName: frequency
+          fields: []
+          id: frequency
+          length: 16777216
+          mode: NULLABLE
+          name: frequency
+          type: STRING
+        - alias: account_id
+          fieldName: account_id
+          fields: []
+          id: account_id
+          isKey: true
+          length: 16777216
+          mode: NULLABLE
+          name: account_id
+          type: STRING
+        - alias: ctr
+          fieldName: ctr
+          fields: []
+          id: ctr
+          length: 16777216
+          mode: NULLABLE
+          name: ctr
+          type: STRING
+        - alias: unique_ctr
+          fieldName: unique_ctr
+          fields: []
+          id: unique_ctr
+          length: 16777216
+          mode: NULLABLE
+          name: unique_ctr
+          type: STRING
+        - alias: unique_clicks
+          fieldName: unique_clicks
+          fields: []
+          id: unique_clicks
+          length: 16777216
+          mode: NULLABLE
+          name: unique_clicks
+          type: STRING
+        - alias: date_start
+          fieldName: date_start
+          fields: []
+          id: date_start
+          isKey: true
+          length: 16777216
+          mode: NULLABLE
+          name: date_start
+          type: STRING
+        - alias: campaign_id
+          fieldName: campaign_id
+          fields: []
+          id: campaign_id
+          isKey: true
+          length: 16777216
+          mode: NULLABLE
+          name: campaign_id
+          type: STRING
+        - alias: campaign_name
+          fieldName: campaign_name
+          fields: []
+          id: campaign_name
+          length: 16777216
+          mode: NULLABLE
+          name: campaign_name
+          type: STRING
+        - alias: adset_id
+          fieldName: adset_id
+          fields: []
+          id: adset_id
+          isKey: true
+          length: 16777216
+          mode: NULLABLE
+          name: adset_id
+          type: STRING
+        - alias: adset_name
+          fieldName: adset_name
+          fields: []
+          id: adset_name
+          length: 16777216
+          mode: NULLABLE
+          name: adset_name
+          type: STRING
+        - alias: ad_id
+          fieldName: ad_id
+          fields: []
+          id: ad_id
+          isKey: true
+          length: 16777216
+          mode: NULLABLE
+          name: ad_id
+          type: STRING
+        - alias: ad_name
+          fieldName: ad_name
+          fields: []
+          id: ad_name
+          length: 16777216
+          mode: NULLABLE
+          name: ad_name
+          type: STRING
+        - alias: publisher_platform
+          fieldName: publisher_platform
+          fields: []
+          id: publisher_platform
+          isKey: true
+          length: 16777216
+          mode: NULLABLE
+          name: publisher_platform
+          type: STRING
+        - alias: platform_position
+          fieldName: platform_position
+          fields: []
+          id: platform_position
+          isKey: true
+          length: 16777216
+          mode: NULLABLE
+          name: platform_position
+          type: STRING
+        - alias: impressions
+          fieldName: impressions
+          fields: []
+          id: impressions
+          length: 16777216
+          mode: NULLABLE
+          name: impressions
+          type: STRING
+        - alias: date_stop
+          fieldName: date_stop
+          fields: []
+          id: date_stop
+          length: 16777216
+          mode: NULLABLE
+          name: date_stop
+          type: STRING
+        - alias: clicks
+          fieldName: clicks
+          fields: []
+          id: clicks
+          length: 16777216
+          mode: NULLABLE
+          name: clicks
+          type: STRING
+        - alias: reach
+          fieldName: reach
+          fields: []
+          id: reach
+          length: 16777216
+          mode: NULLABLE
+          name: reach
+          type: STRING
+        - alias: cpc
+          fieldName: cpc
+          fields: []
+          id: cpc
+          length: 16777216
+          mode: NULLABLE
+          name: cpc
+          type: STRING
+        - alias: unique_link_clicks_ctr
+          fieldName: unique_link_clicks_ctr
+          fields: []
+          id: unique_link_clicks_ctr
+          length: 16777216
+          mode: NULLABLE
+          name: unique_link_clicks_ctr
+          type: STRING
+        - alias: inline_link_clicks
+          fieldName: inline_link_clicks
+          fields: []
+          id: inline_link_clicks
+          length: 16777216
+          mode: NULLABLE
+          name: inline_link_clicks
+          type: STRING
+        - alias: spend
+          fieldName: spend
+          fields: []
+          id: spend
+          length: 16777216
+          mode: NULLABLE
+          name: spend
+          type: STRING
+        - alias: unique_inline_link_click_ctr
+          fieldName: unique_inline_link_click_ctr
+          fields: []
+          id: unique_inline_link_click_ctr
+          length: 16777216
+          mode: NULLABLE
+          name: unique_inline_link_click_ctr
+          type: STRING
+        - alias: cpm
+          fieldName: cpm
+          fields: []
+          id: cpm
+          length: 16777216
+          mode: NULLABLE
+          name: cpm
+          type: STRING
+        - alias: video_p100_watched
+          fieldName: video_p100_watched
+          fields: []
+          id: video_p100_watched
+          length: 38
+          mode: NULLABLE
+          name: video_p100_watched
+          type: NUMBER
+        - alias: video_p95_watched
+          fieldName: video_p95_watched
+          fields: []
+          id: video_p95_watched
+          length: 38
+          mode: NULLABLE
+          name: video_p95_watched
+          type: NUMBER
+        - alias: video_p75_watched
+          fieldName: video_p75_watched
+          fields: []
+          id: video_p75_watched
+          length: 38
+          mode: NULLABLE
+          name: video_p75_watched
+          type: NUMBER
+        - alias: video_p50_watched
+          fieldName: video_p50_watched
+          fields: []
+          id: video_p50_watched
+          length: 38
+          mode: NULLABLE
+          name: video_p50_watched
+          type: NUMBER
+        - alias: video_p25_watched
+          fieldName: video_p25_watched
+          fields: []
+          id: video_p25_watched
+          length: 38
+          mode: NULLABLE
+          name: video_p25_watched
+          type: NUMBER
+        - alias: video_avg_time_watched
+          fieldName: video_avg_time_watched
+          fields: []
+          id: video_avg_time_watched
+          length: 38
+          mode: NULLABLE
+          name: video_avg_time_watched
+          type: NUMBER
+        - alias: purchase
+          fieldName: purchase
+          fields: []
+          id: purchase
+          length: 38
+          mode: NULLABLE
+          name: purchase
+          type: NUMBER
+        - alias: app_installs
+          fieldName: app_installs
+          fields: []
+          id: app_installs
+          length: 38
+          mode: NULLABLE
+          name: app_installs
+          type: NUMBER
+        - alias: app_uses
+          fieldName: app_uses
+          fields: []
+          id: app_uses
+          length: 38
+          mode: NULLABLE
+          name: app_uses
+          type: NUMBER
+        - alias: checkins
+          fieldName: checkins
+          fields: []
+          id: checkins
+          length: 38
+          mode: NULLABLE
+          name: checkins
+          type: NUMBER
+        - alias: comments
+          fieldName: comments
+          fields: []
+          id: comments
+          length: 38
+          mode: NULLABLE
+          name: comments
+          type: NUMBER
+        - alias: credit_spends
+          fieldName: credit_spends
+          fields: []
+          id: credit_spends
+          length: 38
+          mode: NULLABLE
+          name: credit_spends
+          type: NUMBER
+        - alias: game_plays
+          fieldName: game_plays
+          fields: []
+          id: game_plays
+          length: 38
+          mode: NULLABLE
+          name: game_plays
+          type: NUMBER
+        - alias: landing_page_views
+          fieldName: landing_page_views
+          fields: []
+          id: landing_page_views
+          length: 38
+          mode: NULLABLE
+          name: landing_page_views
+          type: NUMBER
+        - alias: likes
+          fieldName: likes
+          fields: []
+          id: likes
+          length: 38
+          mode: NULLABLE
+          name: likes
+          type: NUMBER
+        - alias: mobile_app_installs
+          fieldName: mobile_app_installs
+          fields: []
+          id: mobile_app_installs
+          length: 38
+          mode: NULLABLE
+          name: mobile_app_installs
+          type: NUMBER
+        - alias: omni_ratings_submitted
+          fieldName: omni_ratings_submitted
+          fields: []
+          id: omni_ratings_submitted
+          length: 38
+          mode: NULLABLE
+          name: omni_ratings_submitted
+          type: NUMBER
+        - alias: omni_initiated_checkouts
+          fieldName: omni_initiated_checkouts
+          fields: []
+          id: omni_initiated_checkouts
+          length: 38
+          mode: NULLABLE
+          name: omni_initiated_checkouts
+          type: NUMBER
+        - alias: omni_purchases
+          fieldName: omni_purchases
+          fields: []
+          id: omni_purchases
+          length: 38
+          mode: NULLABLE
+          name: omni_purchases
+          type: NUMBER
+        - alias: link_click
+          fieldName: link_click
+          fields: []
+          id: link_click
+          length: 38
+          mode: NULLABLE
+          name: link_click
+          type: NUMBER
+        - alias: omni_app_activations
+          fieldName: omni_app_activations
+          fields: []
+          id: omni_app_activations
+          length: 38
+          mode: NULLABLE
+          name: omni_app_activations
+          type: NUMBER
+        - alias: omni_app_installs
+          fieldName: omni_app_installs
+          fields: []
+          id: omni_app_installs
+          length: 38
+          mode: NULLABLE
+          name: omni_app_installs
+          type: NUMBER
+        - alias: omni_content_views
+          fieldName: omni_content_views
+          fields: []
+          id: omni_content_views
+          length: 38
+          mode: NULLABLE
+          name: omni_content_views
+          type: NUMBER
+        - alias: post_engagement
+          fieldName: post_engagement
+          fields: []
+          id: post_engagement
+          length: 38
+          mode: NULLABLE
+          name: post_engagement
+          type: NUMBER
+        - alias: page_engagement
+          fieldName: page_engagement
+          fields: []
+          id: page_engagement
+          length: 38
+          mode: NULLABLE
+          name: page_engagement
+          type: NUMBER
+        - alias: omni_tutorial_completions
+          fieldName: omni_tutorial_completions
+          fields: []
+          id: omni_tutorial_completions
+          length: 38
+          mode: NULLABLE
+          name: omni_tutorial_completions
+          type: NUMBER
+        - alias: adds_to_cart
+          fieldName: adds_to_cart
+          fields: []
+          id: adds_to_cart
+          length: 38
+          mode: NULLABLE
+          name: adds_to_cart
+          type: NUMBER
+        - alias: adds_payment_info
+          fieldName: adds_payment_info
+          fields: []
+          id: adds_payment_info
+          length: 38
+          mode: NULLABLE
+          name: adds_payment_info
+          type: NUMBER
+        - alias: adds_to_wishlist
+          fieldName: adds_to_wishlist
+          fields: []
+          id: adds_to_wishlist
+          length: 38
+          mode: NULLABLE
+          name: adds_to_wishlist
+          type: NUMBER
+        - alias: completed_registrations
+          fieldName: completed_registrations
+          fields: []
+          id: completed_registrations
+          length: 38
+          mode: NULLABLE
+          name: completed_registrations
+          type: NUMBER
+        - alias: initiates_checkout
+          fieldName: initiates_checkout
+          fields: []
+          id: initiates_checkout
+          length: 38
+          mode: NULLABLE
+          name: initiates_checkout
+          type: NUMBER
+        - alias: leads
+          fieldName: leads
+          fields: []
+          id: leads
+          length: 38
+          mode: NULLABLE
+          name: leads
+          type: NUMBER
+        - alias: pixel_purchases
+          fieldName: pixel_purchases
+          fields: []
+          id: pixel_purchases
+          length: 38
+          mode: NULLABLE
+          name: pixel_purchases
+          type: NUMBER
+        - alias: on_facebook_workflow_completions
+          fieldName: on_facebook_workflow_completions
+          fields: []
+          id: on_facebook_workflow_completions
+          length: 38
+          mode: NULLABLE
+          name: on_facebook_workflow_completions
+          type: NUMBER
+        - alias: blocked_messaging_conversations
+          fieldName: blocked_messaging_conversations
+          fields: []
+          id: blocked_messaging_conversations
+          length: 38
+          mode: NULLABLE
+          name: blocked_messaging_conversations
+          type: NUMBER
+        - alias: messaging_conversations_started
+          fieldName: messaging_conversations_started
+          fields: []
+          id: messaging_conversations_started
+          length: 38
+          mode: NULLABLE
+          name: messaging_conversations_started
+          type: NUMBER
+        - alias: new_messaging_conversations
+          fieldName: new_messaging_conversations
+          fields: []
+          id: new_messaging_conversations
+          length: 38
+          mode: NULLABLE
+          name: new_messaging_conversations
+          type: NUMBER
+        - alias: post_saves
+          fieldName: post_saves
+          fields: []
+          id: post_saves
+          length: 38
+          mode: NULLABLE
+          name: post_saves
+          type: NUMBER
+        - alias: on_facebook_purchases
+          fieldName: on_facebook_purchases
+          fields: []
+          id: on_facebook_purchases
+          length: 38
+          mode: NULLABLE
+          name: on_facebook_purchases
+          type: NUMBER
+        - alias: page_photo_views
+          fieldName: page_photo_views
+          fields: []
+          id: page_photo_views
+          length: 38
+          mode: NULLABLE
+          name: page_photo_views
+          type: NUMBER
+        - alias: post_shares
+          fieldName: post_shares
+          fields: []
+          id: post_shares
+          length: 38
+          mode: NULLABLE
+          name: post_shares
+          type: NUMBER
+        - alias: post_reactions
+          fieldName: post_reactions
+          fields: []
+          id: post_reactions
+          length: 38
+          mode: NULLABLE
+          name: post_reactions
+          type: NUMBER
+        - alias: event_responses
+          fieldName: event_responses
+          fields: []
+          id: event_responses
+          length: 38
+          mode: NULLABLE
+          name: event_responses
+          type: NUMBER
+        - alias: three_sec_video_views
+          fieldName: three_sec_video_views
+          fields: []
+          id: three_sec_video_views
+          length: 38
+          mode: NULLABLE
+          name: three_sec_video_views
+          type: NUMBER
+        - alias: trials_started
+          fieldName: trials_started
+          fields: []
+          id: trials_started
+          length: 38
+          mode: NULLABLE
+          name: trials_started
+          type: NUMBER
+        - alias: applications_submitted
+          fieldName: applications_submitted
+          fields: []
+          id: applications_submitted
+          length: 38
+          mode: NULLABLE
+          name: applications_submitted
+          type: NUMBER
+        - alias: subscriptions
+          fieldName: subscriptions
+          fields: []
+          id: subscriptions
+          length: 38
+          mode: NULLABLE
+          name: subscriptions
+          type: NUMBER
+        - alias: canceled_subscriptions
+          fieldName: canceled_subscriptions
+          fields: []
+          id: canceled_subscriptions
+          length: 38
+          mode: NULLABLE
+          name: canceled_subscriptions
+          type: NUMBER
+        - alias: add_to_cart_value
+          fieldName: add_to_cart_value
+          fields: []
+          id: add_to_cart_value
+          length: 38
+          mode: NULLABLE
+          name: add_to_cart_value
+          type: FLOAT
+        - alias: fb_mobile_add_to_cart_value
+          fieldName: fb_mobile_add_to_cart_value
+          fields: []
+          id: fb_mobile_add_to_cart_value
+          length: 38
+          mode: NULLABLE
+          name: fb_mobile_add_to_cart_value
+          type: FLOAT
+        - alias: fb_mobile_initiated_checkout_value
+          fieldName: fb_mobile_initiated_checkout_value
+          fields: []
+          id: fb_mobile_initiated_checkout_value
+          length: 38
+          mode: NULLABLE
+          name: fb_mobile_initiated_checkout_value
+          type: FLOAT
+        - alias: fb_mobile_purchase_value
+          fieldName: fb_mobile_purchase_value
+          fields: []
+          id: fb_mobile_purchase_value
+          length: 38
+          mode: NULLABLE
+          name: fb_mobile_purchase_value
+          type: FLOAT
+        - alias: fb_mobile_rate_value
+          fieldName: fb_mobile_rate_value
+          fields: []
+          id: fb_mobile_rate_value
+          length: 38
+          mode: NULLABLE
+          name: fb_mobile_rate_value
+          type: FLOAT
+        - alias: fb_mobile_other_value
+          fieldName: fb_mobile_other_value
+          fields: []
+          id: fb_mobile_other_value
+          length: 38
+          mode: NULLABLE
+          name: fb_mobile_other_value
+          type: FLOAT
+        - alias: initiate_checkout_value
+          fieldName: initiate_checkout_value
+          fields: []
+          id: initiate_checkout_value
+          length: 38
+          mode: NULLABLE
+          name: initiate_checkout_value
+          type: FLOAT
+        - alias: omni_add_to_cart_value
+          fieldName: omni_add_to_cart_value
+          fields: []
+          id: omni_add_to_cart_value
+          length: 38
+          mode: NULLABLE
+          name: omni_add_to_cart_value
+          type: FLOAT
+        - alias: omni_initiated_checkout_value
+          fieldName: omni_initiated_checkout_value
+          fields: []
+          id: omni_initiated_checkout_value
+          length: 38
+          mode: NULLABLE
+          name: omni_initiated_checkout_value
+          type: FLOAT
+        - alias: omni_purchase_value
+          fieldName: omni_purchase_value
+          fields: []
+          id: omni_purchase_value
+          length: 38
+          mode: NULLABLE
+          name: omni_purchase_value
+          type: FLOAT
+        - alias: omni_rate_value
+          fieldName: omni_rate_value
+          fields: []
+          id: omni_rate_value
+          length: 38
+          mode: NULLABLE
+          name: omni_rate_value
+          type: FLOAT
+        - alias: purchase_unique
+          fieldName: purchase_unique
+          fields: []
+          id: purchase_unique
+          length: 38
+          mode: NULLABLE
+          name: purchase_unique
+          type: NUMBER
+        - alias: app_installs_unique
+          fieldName: app_installs_unique
+          fields: []
+          id: app_installs_unique
+          length: 38
+          mode: NULLABLE
+          name: app_installs_unique
+          type: NUMBER
+        - alias: app_uses_unique
+          fieldName: app_uses_unique
+          fields: []
+          id: app_uses_unique
+          length: 38
+          mode: NULLABLE
+          name: app_uses_unique
+          type: NUMBER
+        - alias: checkins_unique
+          fieldName: checkins_unique
+          fields: []
+          id: checkins_unique
+          length: 38
+          mode: NULLABLE
+          name: checkins_unique
+          type: NUMBER
+        - alias: comments_unique
+          fieldName: comments_unique
+          fields: []
+          id: comments_unique
+          length: 38
+          mode: NULLABLE
+          name: comments_unique
+          type: NUMBER
+        - alias: credit_spends_unique
+          fieldName: credit_spends_unique
+          fields: []
+          id: credit_spends_unique
+          length: 38
+          mode: NULLABLE
+          name: credit_spends_unique
+          type: NUMBER
+        - alias: game_plays_unique
+          fieldName: game_plays_unique
+          fields: []
+          id: game_plays_unique
+          length: 38
+          mode: NULLABLE
+          name: game_plays_unique
+          type: NUMBER
+        - alias: landing_page_views_unique
+          fieldName: landing_page_views_unique
+          fields: []
+          id: landing_page_views_unique
+          length: 38
+          mode: NULLABLE
+          name: landing_page_views_unique
+          type: NUMBER
+        - alias: likes_unique
+          fieldName: likes_unique
+          fields: []
+          id: likes_unique
+          length: 38
+          mode: NULLABLE
+          name: likes_unique
+          type: NUMBER
+        - alias: mobile_app_installs_unique
+          fieldName: mobile_app_installs_unique
+          fields: []
+          id: mobile_app_installs_unique
+          length: 38
+          mode: NULLABLE
+          name: mobile_app_installs_unique
+          type: NUMBER
+        - alias: omni_ratings_submitted_unique
+          fieldName: omni_ratings_submitted_unique
+          fields: []
+          id: omni_ratings_submitted_unique
+          length: 38
+          mode: NULLABLE
+          name: omni_ratings_submitted_unique
+          type: NUMBER
+        - alias: omni_initiated_checkouts_unique
+          fieldName: omni_initiated_checkouts_unique
+          fields: []
+          id: omni_initiated_checkouts_unique
+          length: 38
+          mode: NULLABLE
+          name: omni_initiated_checkouts_unique
+          type: NUMBER
+        - alias: omni_purchases_unique
+          fieldName: omni_purchases_unique
+          fields: []
+          id: omni_purchases_unique
+          length: 38
+          mode: NULLABLE
+          name: omni_purchases_unique
+          type: NUMBER
+        - alias: link_click_unique
+          fieldName: link_click_unique
+          fields: []
+          id: link_click_unique
+          length: 38
+          mode: NULLABLE
+          name: link_click_unique
+          type: NUMBER
+        - alias: omni_app_activations_unique
+          fieldName: omni_app_activations_unique
+          fields: []
+          id: omni_app_activations_unique
+          length: 38
+          mode: NULLABLE
+          name: omni_app_activations_unique
+          type: NUMBER
+        - alias: omni_app_installs_unique
+          fieldName: omni_app_installs_unique
+          fields: []
+          id: omni_app_installs_unique
+          length: 38
+          mode: NULLABLE
+          name: omni_app_installs_unique
+          type: NUMBER
+        - alias: omni_content_views_unique
+          fieldName: omni_content_views_unique
+          fields: []
+          id: omni_content_views_unique
+          length: 38
+          mode: NULLABLE
+          name: omni_content_views_unique
+          type: NUMBER
+        - alias: post_engagement_unique
+          fieldName: post_engagement_unique
+          fields: []
+          id: post_engagement_unique
+          length: 38
+          mode: NULLABLE
+          name: post_engagement_unique
+          type: NUMBER
+        - alias: page_engagement_unique
+          fieldName: page_engagement_unique
+          fields: []
+          id: page_engagement_unique
+          length: 38
+          mode: NULLABLE
+          name: page_engagement_unique
+          type: NUMBER
+        - alias: omni_tutorial_completions_unique
+          fieldName: omni_tutorial_completions_unique
+          fields: []
+          id: omni_tutorial_completions_unique
+          length: 38
+          mode: NULLABLE
+          name: omni_tutorial_completions_unique
+          type: NUMBER
+        - alias: adds_to_cart_unique
+          fieldName: adds_to_cart_unique
+          fields: []
+          id: adds_to_cart_unique
+          length: 38
+          mode: NULLABLE
+          name: adds_to_cart_unique
+          type: NUMBER
+        - alias: adds_payment_info_unique
+          fieldName: adds_payment_info_unique
+          fields: []
+          id: adds_payment_info_unique
+          length: 38
+          mode: NULLABLE
+          name: adds_payment_info_unique
+          type: NUMBER
+        - alias: adds_to_wishlist_unique
+          fieldName: adds_to_wishlist_unique
+          fields: []
+          id: adds_to_wishlist_unique
+          length: 38
+          mode: NULLABLE
+          name: adds_to_wishlist_unique
+          type: NUMBER
+        - alias: completed_registrations_unique
+          fieldName: completed_registrations_unique
+          fields: []
+          id: completed_registrations_unique
+          length: 38
+          mode: NULLABLE
+          name: completed_registrations_unique
+          type: NUMBER
+        - alias: initiates_checkout_unique
+          fieldName: initiates_checkout_unique
+          fields: []
+          id: initiates_checkout_unique
+          length: 38
+          mode: NULLABLE
+          name: initiates_checkout_unique
+          type: NUMBER
+        - alias: leads_unique
+          fieldName: leads_unique
+          fields: []
+          id: leads_unique
+          length: 38
+          mode: NULLABLE
+          name: leads_unique
+          type: NUMBER
+        - alias: pixel_purchases_unique
+          fieldName: pixel_purchases_unique
+          fields: []
+          id: pixel_purchases_unique
+          length: 38
+          mode: NULLABLE
+          name: pixel_purchases_unique
+          type: NUMBER
+        - alias: on_facebook_workflow_completions_unique
+          fieldName: on_facebook_workflow_completions_unique
+          fields: []
+          id: on_facebook_workflow_completions_unique
+          length: 38
+          mode: NULLABLE
+          name: on_facebook_workflow_completions_unique
+          type: NUMBER
+        - alias: blocked_messaging_conversations_unique
+          fieldName: blocked_messaging_conversations_unique
+          fields: []
+          id: blocked_messaging_conversations_unique
+          length: 38
+          mode: NULLABLE
+          name: blocked_messaging_conversations_unique
+          type: NUMBER
+        - alias: messaging_conversations_started_unique
+          fieldName: messaging_conversations_started_unique
+          fields: []
+          id: messaging_conversations_started_unique
+          length: 38
+          mode: NULLABLE
+          name: messaging_conversations_started_unique
+          type: NUMBER
+        - alias: new_messaging_conversations_unique
+          fieldName: new_messaging_conversations_unique
+          fields: []
+          id: new_messaging_conversations_unique
+          length: 38
+          mode: NULLABLE
+          name: new_messaging_conversations_unique
+          type: NUMBER
+        - alias: post_saves_unique
+          fieldName: post_saves_unique
+          fields: []
+          id: post_saves_unique
+          length: 38
+          mode: NULLABLE
+          name: post_saves_unique
+          type: NUMBER
+        - alias: on_facebook_purchases_unique
+          fieldName: on_facebook_purchases_unique
+          fields: []
+          id: on_facebook_purchases_unique
+          length: 38
+          mode: NULLABLE
+          name: on_facebook_purchases_unique
+          type: NUMBER
+        - alias: page_photo_views_unique
+          fieldName: page_photo_views_unique
+          fields: []
+          id: page_photo_views_unique
+          length: 38
+          mode: NULLABLE
+          name: page_photo_views_unique
+          type: NUMBER
+        - alias: post_shares_unique
+          fieldName: post_shares_unique
+          fields: []
+          id: post_shares_unique
+          length: 38
+          mode: NULLABLE
+          name: post_shares_unique
+          type: NUMBER
+        - alias: post_reactions_unique
+          fieldName: post_reactions_unique
+          fields: []
+          id: post_reactions_unique
+          length: 38
+          mode: NULLABLE
+          name: post_reactions_unique
+          type: NUMBER
+        - alias: event_responses_unique
+          fieldName: event_responses_unique
+          fields: []
+          id: event_responses_unique
+          length: 38
+          mode: NULLABLE
+          name: event_responses_unique
+          type: NUMBER
+        - alias: three_sec_video_views_unique
+          fieldName: three_sec_video_views_unique
+          fields: []
+          id: three_sec_video_views_unique
+          length: 38
+          mode: NULLABLE
+          name: three_sec_video_views_unique
+          type: NUMBER
+        - alias: trials_started_unique
+          fieldName: trials_started_unique
+          fields: []
+          id: trials_started_unique
+          length: 38
+          mode: NULLABLE
+          name: trials_started_unique
+          type: NUMBER
+        - alias: applications_submitted_unique
+          fieldName: applications_submitted_unique
+          fields: []
+          id: applications_submitted_unique
+          length: 38
+          mode: NULLABLE
+          name: applications_submitted_unique
+          type: NUMBER
+        - alias: subscriptions_unique
+          fieldName: subscriptions_unique
+          fields: []
+          id: subscriptions_unique
+          length: 38
+          mode: NULLABLE
+          name: subscriptions_unique
+          type: NUMBER
+        - alias: canceled_subscriptions_unique
+          fieldName: canceled_subscriptions_unique
+          fields: []
+          id: canceled_subscriptions_unique
+          length: 38
+          mode: NULLABLE
+          name: canceled_subscriptions_unique
+          type: NUMBER
+        - alias: start_trial_mobile_app_conversions
+          fieldName: start_trial_mobile_app_conversions
+          fields: []
+          id: start_trial_mobile_app_conversions
+          length: 38
+          mode: NULLABLE
+          name: start_trial_mobile_app_conversions
+          type: FLOAT
+        - alias: start_trial_total_conversions
+          fieldName: start_trial_total_conversions
+          fields: []
+          id: start_trial_total_conversions
+          length: 38
+          mode: NULLABLE
+          name: start_trial_total_conversions
+          type: FLOAT
+        - alias: subscribe_mobile_app_conversions
+          fieldName: subscribe_mobile_app_conversions
+          fields: []
+          id: subscribe_mobile_app_conversions
+          length: 38
+          mode: NULLABLE
+          name: subscribe_mobile_app_conversions
+          type: FLOAT
+        - alias: subscribe_total_conversions
+          fieldName: subscribe_total_conversions
+          fields: []
+          id: subscribe_total_conversions
+          length: 38
+          mode: NULLABLE
+          name: subscribe_total_conversions
+          type: FLOAT
+        - alias: omni_purchase_roas
+          fieldName: omni_purchase_roas
+          fields: []
+          id: omni_purchase_roas
+          length: 38
+          mode: NULLABLE
+          name: omni_purchase_roas
+          type: FLOAT
+        - alias: unique_outbound_clicks
+          fieldName: unique_outbound_clicks
+          fields: []
+          id: unique_outbound_clicks
+          length: 38
+          mode: NULLABLE
+          name: unique_outbound_clicks
+          type: NUMBER
+        - alias: outbound_clicks
+          fieldName: outbound_clicks
+          fields: []
+          id: outbound_clicks
+          length: 38
+          mode: NULLABLE
+          name: outbound_clicks
+          type: NUMBER
+        - alias: outbound_clicks_ctr
+          fieldName: outbound_clicks_ctr
+          fields: []
+          id: outbound_clicks_ctr
+          length: 38
+          mode: NULLABLE
+          name: outbound_clicks_ctr
+          type: FLOAT
+        - alias: unique_outbound_click_ctr
+          fieldName: unique_outbound_click_ctr
+          fields: []
+          id: unique_outbound_click_ctr
+          length: 38
+          mode: NULLABLE
+          name: unique_outbound_click_ctr
+          type: FLOAT
+        - alias: creative_id
+          fieldName: creative_id
+          fields: []
+          id: creative_id
+          length: 16777216
+          mode: NULLABLE
+          name: creative_id
+          type: STRING
+        - alias: creative_name
+          fieldName: creative_name
+          fields: []
+          id: creative_name
+          length: 16777216
+          mode: NULLABLE
+          name: creative_name
+          type: STRING
+        - alias: link_url
+          fieldName: link_url
+          fields: []
+          id: link_url
+          length: 16777216
+          mode: NULLABLE
+          name: link_url
+          type: STRING
+        file_type: csv
+        fzConnection: {}
+        isEnabled: true
+        mapping_message: Warning! please make sure your columns mapping is valid after
+          your query changes.
+        merge_method: switch_tables
+        query_priority: interactive
+        schema_id: '{fb_ads_schema}'
+        split_interval: d
+        split_tables: 'no'
+        sql_query: !sql performance_logic.sql
+        step_name: create fact_fb_ads_performance table
+        target_loading: merge
+        target_table: fact_fb_ads_performance
+        target_type: table
+        type: step
+        use_standard_sql: false
+      variables: {}
+    schedule: {}
     type: logic
+  entity_name: river-60e718ebf5682c254bc15cfe
+  type: river
+  version: 0.2.5
