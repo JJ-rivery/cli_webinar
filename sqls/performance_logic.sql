@@ -1,5 +1,10 @@
 /* SQL for Logic Step "create fact_fb_ads_performance table" */
 
+/* change log
+ 13/7/21 AlonReznik conversions
+ */
+
+
 select fact.*,
 creatives._creative_id as creative_id,
 creatives._creative_name as creative_name,
@@ -31,6 +36,14 @@ fact._INLINE_LINK_CLICKS as inline_link_clicks,
 fact._SPEND as spend,
 fact._UNIQUE_INLINE_LINK_CLICK_CTR as unique_inline_link_click_ctr,
 fact._CPM as cpm,
+
+-- conversions
+max(case when conversions.value:_action_type::string='start_trial_mobile_app' then conversions.value:_value::float else null end) as start_trial_mobile_app_conversions,
+max(case when conversions.value:_action_type::string='start_trial_total' then conversions.value:_value::float else null end) as start_trial_total_conversions,
+max(case when conversions.value:_action_type::string='subscribe_mobile_app' then conversions.value:_value::float else null end) as subscribe_mobile_app_conversions,
+max(case when conversions.value:_action_type::string='subscribe_total' then conversions.value:_value::float else null end) as subscribe_total_conversions,
+
+
 max(case when video_p100.value:_action_type::string='video_view' then video_p100.value:_value::int else null end) as video_p100_watched,
 max(case when video_p95.value:_action_type::string = 'video_view'then video_p95.value:_value::int else null end) as video_p95_watched,
 max(case when video_p75.value:_action_type::string = 'video_view'then video_p75.value:_value::int else null end) as video_p75_watched,
@@ -150,6 +163,7 @@ max(case when oc_ctr.value:_action_type::string = 'outbound_click' then oc_ctr.v
 max(case when unique_oc_ctr.value:_action_type::string = 'outbound_click' then unique_oc_ctr.value:_value::float else null end) as unique_outbound_click_ctr
 from
 {fb_ads_db}.{fb_ads_schema}.FB_ADS_INSIGHTS as fact,
+lateral flatten(input => fact._CONVERSIONS, OUTER => TRUE) conversions
 lateral flatten(input => fact._ACTIONS, OUTER => TRUE) actions,
 lateral flatten(input => fact._ACTION_VALUES, OUTER => TRUE) action_values,
 lateral flatten(input => fact._UNIQUE_OUTBOUND_CLICKS_CTR, OUTER => TRUE) unique_oc_ctr,
@@ -164,6 +178,7 @@ lateral flatten(input => fact._OUTBOUND_CLICKS, OUTER => TRUE) oc,
 lateral flatten(input => fact._VIDEO_AVG_TIME_WATCHED_ACTIONS, OUTER => TRUE) video_avg,
 lateral flatten(input => fact._UNIQUE_OUTBOUND_CLICKS, OUTER => TRUE) unique_oc,
 lateral flatten(input => fact._PURCHASE_ROAS, OUTER => TRUE) purchase
+
 group by 
 fact._UNIQUE_INLINE_LINK_CLICK_CTR, 
 fact._ACCOUNT_NAME,
